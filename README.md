@@ -20,7 +20,33 @@ This project is developed and tested to run on PHP version 5.3.21 or later and M
 
 ## Installation
 
-TODO
+The OpenCfP development environment is managed via [Vagrant](http://www.vagrantup.com/) and provisioned via [Puppet](http://puppetlabs.com/). You can set up a development environment by following these steps:
+
+1. Download, install, and configure the dependencies.
+
+  * VirtualBox (https://www.virtualbox.org)
+  * Ruby (http://www.ruby-lang.org)
+  * Vagrant (http://www.vagrantup.com)
+
+2. Clone the source repository to any location on your machine.
+
+```
+git clone git://github.com/jcarouth/opencfp.git /path/to/opencfp
+```
+
+3. Start and provision your development virtual machine using vagrant.
+
+```
+vagrant up
+```
+
+4. Browse to your development instance using a web browser.
+
+```
+open http://opencfp.dev
+```
+
+You can now modify the files that make up the application. Saving the files will automatically update them on the virtual machine and will be reflected by viewing the site in your web browser.
 
 ## Tests
 
