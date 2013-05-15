@@ -34,13 +34,22 @@ The OpenCfP development environment is managed via [Vagrant](http://www.vagrantu
 git clone git://github.com/jcarouth/opencfp.git /path/to/opencfp
 ```
 
-3. Start and provision your development virtual machine using vagrant.
+3. Install the project dependencies using [Composer](http://getcomposer.org).
+
+```
+curl -sS https://getcomposer.org/installer | php
+php composer.phar install --dev
+```
+
+**NOTE:** If you are using Windows, please [follow the installation instructions](http://getcomposer.org/doc/00-intro.md#installation-windows) provided by the composer project.
+
+4. Start and provision your development virtual machine using vagrant.
 
 ```
 vagrant up
 ```
 
-4. Browse to your development instance using a web browser.
+5. Browse to your development instance using a web browser.
 
 ```
 open http://opencfp.dev
