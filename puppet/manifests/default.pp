@@ -92,5 +92,5 @@ mysql::grant { 'opencfp' :
     mysql_db         => 'opencfp',
     mysql_user       => 'opencfp',
     mysql_password   => 'opencfp',
-    mysql_host       => '%',
+    mysql_host       => 'localhost',
 }
