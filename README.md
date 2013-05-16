@@ -52,7 +52,7 @@ vagrant up
 5. Browse to your development instance using a web browser.
 
 ```
-open http://opencfp.dev
+open http://opencfp.me.
 ```
 
 You can now modify the files that make up the application. Saving the files will automatically update them on the virtual machine and will be reflected by viewing the site in your web browser.

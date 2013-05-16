@@ -33,9 +33,9 @@ apache::dotconf { 'custom' :
 
 apache::module { 'rewrite' : }
 
-apache::vhost { 'opencfp.dev' :
-    server_name   => 'opencfp.dev',
-    serveraliases => ['www.opencfp.dev'],
+apache::vhost { 'opencfp.me' :
+    server_name   => 'opencfp.me',
+    serveraliases => ['www.opencfp.me'],
     docroot       => '/var/www/opencfp/web',
     port          => '80',
     env_variables => [],
