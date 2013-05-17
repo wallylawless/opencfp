@@ -8,7 +8,7 @@
     { "name": "Jeff Carouth", "email": "jcarouth@gmail.com" }
   ],
   "require": {
-    "php": ">=5.3.21"
+    "php": ">=5.4.15"
   },
   "require-dev": {
     "phpunit/phpunit": "3.7.*"
