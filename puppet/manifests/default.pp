@@ -69,8 +69,13 @@ php::pecl::module { 'memcache' :
     use_package => false
 }
 
-class { 'xdebug' : }
+class { 'php::composer' : }
+php::composer::run { 'Install composer dependencies' :
+    command => 'install --dev',
+    path    => '/var/www/opencfp'
+}
 
+class { 'xdebug' : }
 xdebug::config { 'cgi' : }
 xdebug::config { 'cli' : }
 
