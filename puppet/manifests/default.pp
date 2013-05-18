@@ -36,7 +36,7 @@ apache::module { 'rewrite' : }
 apache::vhost { 'opencfp.me' :
     server_name   => 'opencfp.me',
     serveraliases => ['www.opencfp.me'],
-    docroot       => '/var/www/opencfp/web',
+    docroot       => '/var/www/opencfp/web/public',
     port          => '80',
     env_variables => [],
     priority      => '1'
