@@ -55,8 +55,10 @@ You can now modify the files that make up the application. Saving the files will
 Tests are written using [PHPUnit](https://github.com/sebastianbergmann/phpunit) and can be run by running:
 
 ```
-bin/phpunit
+bin/runtests
 ```
+
+**HINT:** If you add ./bin to your `PATH` you can omit the bin/ part of the previous command and run the tests using `runtests`.
 
 ## License
 

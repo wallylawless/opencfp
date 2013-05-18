@@ -5,3 +5,6 @@
 composer.phar
 vendor/
 bin/phpunit
+
+# Test artifacts
+tests/reports/*

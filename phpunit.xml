@@ -1,0 +1,32 @@
+<phpunit bootstrap="tests/bootstrap.php" colors="true">
+    <testsuites>
+        <testsuite name="OpenCfP Unit Tests">
+            <directory>./tests</directory>
+        </testsuite>
+    </testsuites>
+    <groups>
+        <exclude>
+            <group>disabled</group>
+        </exclude>
+    </groups>
+
+    <filter>
+        <blacklist>
+            <directory>vendor</directory>
+        </blacklist>
+        <whitelist addUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">lib/OpenCfP</directory>
+        </whitelist>
+    </filter>
+
+    <logging>
+        <log type="coverage-html" 
+            target="tests/reports/coverage" 
+            charset="UTF-8" 
+            yui="true" 
+            highlight="true" 
+            lowUpperBound="40"
+            highLowerBound="70" />
+        <log type="testdox-html" target="tests/reports/testdox.html" />
+    </logging>
+</phpunit>
