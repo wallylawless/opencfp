@@ -1,6 +1,8 @@
 OpenCfP
 =======
 
+[![Build Status](https://travis-ci.org/jcarouth/opencfp.png?branch=master)](https://travis-ci.org/jcarouth/opencfp)
+
 An open source PHP-based application designed to improve the experience of managing and submitting to a call for papers for a technology conference.
 
 ## Introduction
