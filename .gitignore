@@ -10,5 +10,6 @@ bin/phpunit
 tests/reports/*
 
 # Assets and related cache
-cache/assetic/*
+tmp/cache/assetic/*
+tmp/cache/orlex/*
 web/webroot/assets/*

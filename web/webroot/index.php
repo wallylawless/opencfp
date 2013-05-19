@@ -6,15 +6,14 @@ $app = new \Silex\Application();
 
 require_once __DIR__ . "/../config/dev.php";
 
+$app_dir = realpath(__DIR__ . '/../app');
+
 $app->register(
     new \Orlex\ServiceProvider(),
     [
-        'orlex.controller.dirs' => [
-            realpath(__DIR__ . '/../app/controllers'),
-        ],
-        'orlex.annotation.dirs' => [
-            realpath(__DIR__ . '/../app/annotation'),
-        ],
+        'orlex.cache.dir'       => $app['cache.path'] . '/orlex',
+        'orlex.controller.dirs' => [$app_dir.'/controllers'],
+        //'orlex.annotation.dirs' => [$app_dir.'/annotation'],
     ]
 );
 

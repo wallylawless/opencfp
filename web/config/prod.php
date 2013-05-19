@@ -1,6 +1,6 @@
 <?php
 // Caching
-$app['cache.path'] = __DIR__ . '/../../cache';
+$app['cache.path'] = realpath(__DIR__ . '/../../tmp/cache');
 
 // Assetic
 $app['assetic.enabled']              = true;
