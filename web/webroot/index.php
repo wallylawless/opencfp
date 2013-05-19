@@ -4,7 +4,7 @@ $loader->add('App', dirname(__DIR__));
 
 $app = new \Silex\Application();
 
-require_once __DIR__ . "/../config/dev.php";
+require_once __DIR__ . "/../config/app.php";
 
 $app_dir = realpath(__DIR__ . '/../app');
 

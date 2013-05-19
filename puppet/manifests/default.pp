@@ -38,7 +38,7 @@ apache::vhost { 'opencfp.me' :
     serveraliases => ['www.opencfp.me'],
     docroot       => '/vagrant/web/webroot',
     port          => '80',
-    env_variables => [],
+    env_variables => ['APP_ENV=dev'],
     priority      => '1'
 }
 
