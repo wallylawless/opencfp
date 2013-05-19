@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "08ec60ced66bf521c2aaa23fcefed309",
+    "hash": "b95b4f144bc27b523cc51f96ed5e1a1a",
     "packages": [
         {
             "name": "dcousineau/orlex",
@@ -1085,7 +1085,7 @@
         "dcousineau/orlex": 20
     },
     "platform": {
-        "php": ">=5.4.15"
+        "php": ">=5.4.0"
     },
     "platform-dev": [
 
