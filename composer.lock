@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "b9730f854c626f6ca07dfdf5fa4b420f",
+    "hash": "799d912fe87f94616e1cdba7fc1e7fb1",
     "packages": [
         {
             "name": "dcousineau/orlex",

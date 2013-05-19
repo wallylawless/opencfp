@@ -9,9 +9,9 @@
   ],
   "require": {
     "php": ">=5.4.0",
-    "silex/silex": "v1.0.0",
+    "silex/silex": "~1.0",
     "dcousineau/orlex": "dev-master",
-    "twig/twig": ">=1.8,<2.0-dev",
+    "twig/twig": "~1.10",
     "kriswallsmith/assetic": "1.2.*@dev",
     "mheap/silex-assetic": "1.0.*@dev",
     "leafo/lessphp": "0.3.*@dev"
