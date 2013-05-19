@@ -5,7 +5,9 @@
   "homepage": "http://github.com/jcarouth/opencfp",
   "license": "MIT",
   "authors": [
-    { "name": "Jeff Carouth", "email": "jcarouth@gmail.com" }
+    { "name": "Jeff Carouth",  "homepage": "https://github.com/jcarouth" },
+    { "name": "Wally Lawless", "homepage": "https://github.com/wallylawless" },
+    { "name": "Contributors",  "homepage": "https://github.com/jcarouth/opencfp/contributors" }
   ],
   "require": {
     "php": ">=5.4.0",
