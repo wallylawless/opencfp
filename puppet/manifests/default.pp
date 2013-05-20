@@ -14,7 +14,7 @@ package { ['python-software-properties'] :
     require => Exec['apt-get update'],
 }
 
-package { ['build-essential', 'vim', 'curl'] :
+package { ['build-essential', 'vim', 'curl', 'git'] :
     ensure  => 'installed',
     require => Exec['apt-get update'],
 }
