@@ -12,9 +12,6 @@ Vagrant.configure("2") do |config|
     v.customize ["modifyvm", :id, "--memory", 1024]
   end
 
-  config.vm.synced_folder "./", "/var/www/opencfp", id: "vagrant-root"
-  config.vm.synced_folder "./puppet/modules", "/etc/puppet/modules", id: "modules"
-
   config.vm.provision :puppet do |puppet|
     puppet.manifests_path = "puppet/manifests"
     puppet.module_path = "puppet/modules"

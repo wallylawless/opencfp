@@ -36,9 +36,9 @@ apache::module { 'rewrite' : }
 apache::vhost { 'opencfp.me' :
     server_name   => 'opencfp.me',
     serveraliases => ['www.opencfp.me'],
-    docroot       => '/var/www/opencfp/web',
+    docroot       => '/vagrant/web/webroot',
     port          => '80',
-    env_variables => [],
+    env_variables => ['APP_ENV=dev'],
     priority      => '1'
 }
 
@@ -72,7 +72,7 @@ php::pecl::module { 'memcache' :
 class { 'php::composer' : }
 php::composer::run { 'Install composer dependencies' :
     command => 'install --dev',
-    path    => '/var/www/opencfp'
+    path    => '/vagrant'
 }
 
 class { 'xdebug' : }

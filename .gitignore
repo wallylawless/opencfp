@@ -8,3 +8,8 @@ bin/phpunit
 
 # Test artifacts
 tests/reports/*
+
+# Assets and related cache
+tmp/cache/assetic/*
+tmp/cache/orlex/*
+web/webroot/assets/*

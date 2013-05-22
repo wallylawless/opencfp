@@ -383,6 +383,20 @@ class apache (
     include $apache::my_class
   }
 
+  file { "/etc/apache2/envvars":
+    ensure  => file,
+    content => template("apache/envvars.erb"),
+    notify  => Service['apache'],
+    require => Package['apache'],
+  }
+
+  file { "/var/lock/apache2":
+    ensure  => directory,
+    recurse => true,
+    owner   => "vagrant",
+    group   => "vagrant",
+  }
+
 
   ### Provide puppi data, if enabled ( puppi => true )
   if $apache::bool_puppi == true {
