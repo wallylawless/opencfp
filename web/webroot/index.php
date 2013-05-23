@@ -8,6 +8,33 @@ require_once __DIR__ . "/../config/app.php";
 
 $app_dir = realpath(__DIR__ . '/../app');
 
+$app->register(new Silex\Provider\SessionServiceProvider());
+$app->register(new Silex\Provider\ValidatorServiceProvider());
+$app->register(new Silex\Provider\TranslationServiceProvider());
+$app->register(new Silex\Provider\FormServiceProvider());
+$app->register(new Silex\Provider\UrlGeneratorServiceProvider());
+
+$app->register(new Silex\Provider\SecurityServiceProvider(), array(
+    'security.firewalls' => array(
+        'admin' => array(
+            'pattern' => '^/',
+            'form'    => array(
+                'login_path'         => '/login',
+                'check_path'         => '/login_check',
+                'username_parameter' => 'form[username]',
+                'password_parameter' => 'form[password]',
+            ),
+            'logout'    => true,
+            'anonymous' => true,
+            'users'     => $app['security.users'],
+        ),
+    ),
+));
+
+$app['security.encoder.digest'] = $app->share(function ($app) {
+    return new Symfony\Component\Security\Core\Encoder\PlaintextPasswordEncoder();
+});
+
 $app->register(
     new \Orlex\ServiceProvider(),
     [
@@ -65,8 +92,6 @@ if (isset($app['assetic.enabled']) && $app['assetic.enabled']) {
             return $am;
         })
     );
-
 }
-
 
 $app->run();

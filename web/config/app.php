@@ -14,3 +14,5 @@ $app['assetic.input.path_to_css']    = $app['assetic.input.path_to_assets'] . '/
 $app['assetic.input.path_to_js']     = $app['assetic.input.path_to_assets'] . '/js/*.js';
 $app['assetic.output.path_to_css']   = 'css/styles.css';
 $app['assetic.output.path_to_js']    = 'js/scripts.js';
+
+$app['security.users'] = array('username' => array('ROLE_USER', 'password'));
