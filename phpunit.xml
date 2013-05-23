@@ -20,13 +20,13 @@
     </filter>
 
     <logging>
-        <log type="coverage-html" 
-            target="tests/reports/coverage" 
-            charset="UTF-8" 
-            yui="true" 
-            highlight="true" 
+        <log type="coverage-html"
+            target="tmp/reports/coverage"
+            charset="UTF-8"
+            yui="true"
+            highlight="true"
             lowUpperBound="40"
             highLowerBound="70" />
-        <log type="testdox-html" target="tests/reports/testdox.html" />
+        <log type="testdox-html" target="tmp/reports/testdox.html" />
     </logging>
 </phpunit>
