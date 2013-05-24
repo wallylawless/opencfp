@@ -2,21 +2,32 @@
 $loader = require_once __DIR__ . '/../../vendor/autoload.php';
 $loader->add('App', dirname(__DIR__));
 
-$app = new \Silex\Application();
+use Silex\Application;
+use Silex\Provider\SessionServiceProvider;
+use Silex\Provider\ValidatorServiceProvider;
+use Silex\Provider\TranslationServiceProvider;
+use Silex\Provider\FormServiceProvider;
+use Silex\Provider\UrlGeneratorServiceProvider;
+use Silex\Provider\SecurityServiceProvider;
+use Symfony\Component\Security\Core\Encoder\PlaintextPasswordEncoder;
+use Orlex\ServiceProvider;
+use Silex\Provider\TwigServiceProvider;
+
+$app = new Application();
 
 require_once __DIR__ . "/../config/app.php";
 
 $app_dir = realpath(__DIR__ . '/../app');
 
-$app->register(new Silex\Provider\SessionServiceProvider());
-$app->register(new Silex\Provider\ValidatorServiceProvider());
-$app->register(new Silex\Provider\TranslationServiceProvider());
-$app->register(new Silex\Provider\FormServiceProvider());
-$app->register(new Silex\Provider\UrlGeneratorServiceProvider());
+$app->register(new SessionServiceProvider());
+$app->register(new ValidatorServiceProvider());
+$app->register(new TranslationServiceProvider());
+$app->register(new FormServiceProvider());
+$app->register(new UrlGeneratorServiceProvider());
 
-$app->register(new Silex\Provider\SecurityServiceProvider(), array(
-    'security.firewalls' => array(
-        'admin' => array(
+$app->register(new SecurityServiceProvider(), [ 
+    'security.firewalls' => [
+        'admin' => [
             'pattern' => '^/',
             'form'    => array(
                 'login_path'         => '/login',
@@ -27,29 +38,23 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), array(
             'logout'    => true,
             'anonymous' => true,
             'users'     => $app['security.users'],
-        ),
-    ),
-));
+        ],
+    ],
+]);
 
 $app['security.encoder.digest'] = $app->share(function ($app) {
-    return new Symfony\Component\Security\Core\Encoder\PlaintextPasswordEncoder();
+    return new PlaintextPasswordEncoder();
 });
 
-$app->register(
-    new \Orlex\ServiceProvider(),
-    [
-        'orlex.cache.dir'       => $app['cache.path'] . '/orlex',
-        'orlex.controller.dirs' => [$app_dir.'/controllers'],
-        //'orlex.annotation.dirs' => [$app_dir.'/annotation'],
-    ]
-);
+$app->register(new ServiceProvider(), [
+    'orlex.cache.dir'       => $app['cache.path'] . '/orlex',
+    'orlex.controller.dirs' => [$app_dir.'/controllers'],
+    //'orlex.annotation.dirs' => [$app_dir.'/annotation'],
+]);
 
-$app->register(
-    new \Silex\Provider\TwigServiceProvider(),
-    [
-        'twig.path' => realpath(__DIR__ . "/../templates"),
-    ]
-);
+$app->register(new TwigServiceProvider(), [
+    'twig.path' => realpath(__DIR__ . "/../templates"),
+]);
 
 if (isset($app['assetic.enabled']) && $app['assetic.enabled']) {
     $app->register(new SilexAssetic\AsseticServiceProvider(), array(

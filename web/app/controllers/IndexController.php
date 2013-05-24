@@ -21,7 +21,6 @@ class IndexController
     use SessionTrait;
     use UrlGeneratorTrait;
 
-
     /**
      * @Route(path="/",methods={"GET"})
      */
@@ -31,7 +30,7 @@ class IndexController
     }
 
     /**
-     * @Route(path="/login",methods={"GET","POST"})
+     * @Route(path="/login",methods={"GET"})
      */
     public function loginAction()
     {
