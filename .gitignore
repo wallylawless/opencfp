@@ -8,6 +8,7 @@ bin/phpunit
 
 # Test artifacts
 tests/reports/*
+tmp/reports/*
 phpunit.xml
 
 # Assets and related cache
