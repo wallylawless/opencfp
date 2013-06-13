@@ -1,0 +1,44 @@
+<phpunit backupGlobals="false"
+        backupStaticAttributes="false"
+        colors="true"
+        convertErrorsToExceptions="false"
+        convertNoticesToExceptions="false"
+        convertWarningsToExceptions="false"
+        printerClass="NyanCat\PHPunit\ResultPrinter"
+        printerFile="vendor/whatthejeff/nyancat-phpunit-resultprinter/src/NyanCat/PHPUnit/ResultPrinter.php"
+        stopOnFailure="false"
+        stopOnError="false"
+        stopOnIncomplete="false"
+        stopOnSkipped="false"
+        bootstrap="tests/bootstrap.php">
+    <testsuites>
+        <testsuite name="OpenCfP Unit Tests">
+            <directory>./tests</directory>
+        </testsuite>
+    </testsuites>
+    <groups>
+        <exclude>
+            <group>disabled</group>
+        </exclude>
+    </groups>
+
+    <filter>
+        <blacklist>
+            <directory>vendor</directory>
+        </blacklist>
+        <whitelist addUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">lib/OpenCfP</directory>
+        </whitelist>
+    </filter>
+
+    <logging>
+        <log type="coverage-html"
+            target="tmp/reports/coverage"
+            charset="UTF-8"
+            yui="true"
+            highlight="true"
+            lowUpperBound="40"
+            highLowerBound="70" />
+        <log type="testdox-html" target="tmp/reports/testdox.html" />
+    </logging>
+</phpunit>

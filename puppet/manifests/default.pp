@@ -14,7 +14,7 @@ package { ['python-software-properties'] :
     require => Exec['apt-get update'],
 }
 
-package { ['build-essential', 'vim', 'curl'] :
+package { ['build-essential', 'vim', 'curl', 'git'] :
     ensure  => 'installed',
     require => Exec['apt-get update'],
 }
@@ -33,12 +33,12 @@ apache::dotconf { 'custom' :
 
 apache::module { 'rewrite' : }
 
-apache::vhost { 'opencfp.dev' :
-    server_name   => 'opencfp.dev',
-    serveraliases => ['www.opencfp.dev'],
-    docroot       => '/var/www/opencfp/web',
+apache::vhost { 'opencfp.me' :
+    server_name   => 'opencfp.me',
+    serveraliases => ['www.opencfp.me'],
+    docroot       => '/vagrant/web/webroot',
     port          => '80',
-    env_variables => [],
+    env_variables => ['APP_ENV=dev'],
     priority      => '1'
 }
 
@@ -69,8 +69,13 @@ php::pecl::module { 'memcache' :
     use_package => false
 }
 
-class { 'xdebug' : }
+class { 'php::composer' : }
+php::composer::run { 'Install composer dependencies' :
+    command => 'install --dev',
+    path    => '/vagrant'
+}
 
+class { 'xdebug' : }
 xdebug::config { 'cgi' : }
 xdebug::config { 'cli' : }
 
@@ -92,5 +97,5 @@ mysql::grant { 'opencfp' :
     mysql_db         => 'opencfp',
     mysql_user       => 'opencfp',
     mysql_password   => 'opencfp',
-    mysql_host       => '%',
+    mysql_host       => 'localhost',
 }

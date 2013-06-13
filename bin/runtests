@@ -1,0 +1,2 @@
+#!/bin/bash
+vagrant ssh -c "/vagrant/bin/phpunit -c /vagrant/phpunit.xml"

@@ -2,6 +2,8 @@
 OpenCfP
 =======
 
+[![Build Status](https://travis-ci.org/jcarouth/opencfp.png?branch=master)](https://travis-ci.org/jcarouth/opencfp) - v0.1.0
+
 An open source PHP-based application designed to improve the experience of managing and submitting to a call for papers for a technology conference.
 
 ## Introduction
@@ -23,37 +25,28 @@ This project is developed and tested to run on PHP version 5.3.21 or later and M
 
 The OpenCfP development environment is managed via [Vagrant](http://www.vagrantup.com/) and provisioned via [Puppet](http://puppetlabs.com/). You can set up a development environment by following these steps:
 
-1. Download, install, and configure the dependencies.
+#### Download, install, and configure the dependencies.
 
   * VirtualBox (https://www.virtualbox.org)
   * Ruby (http://www.ruby-lang.org)
   * Vagrant (http://www.vagrantup.com)
 
-2. Clone the source repository to any location on your machine.
+#### Clone the source repository to any location on your machine.
 
 ```
 git clone git://github.com/jcarouth/opencfp.git /path/to/opencfp
 ```
 
-3. Install the project dependencies using [Composer](http://getcomposer.org).
-
-```
-curl -sS https://getcomposer.org/installer | php
-php composer.phar install --dev
-```
-
-**NOTE:** If you are using Windows, please [follow the installation instructions](http://getcomposer.org/doc/00-intro.md#installation-windows) provided by the composer project.
-
-4. Start and provision your development virtual machine using vagrant.
+#### Start and provision your development virtual machine using vagrant.
 
 ```
 vagrant up
 ```
 
-5. Browse to your development instance using a web browser.
+#### Browse to your development instance using a web browser.
 
 ```
-open http://opencfp.dev
+open http://opencfp.me.
 ```
 
 You can now modify the files that make up the application. Saving the files will automatically update them on the virtual machine and will be reflected by viewing the site in your web browser.
@@ -63,8 +56,10 @@ You can now modify the files that make up the application. Saving the files will
 Tests are written using [PHPUnit](https://github.com/sebastianbergmann/phpunit) and can be run by running:
 
 ```
-bin/phpunit
+bin/runtests
 ```
+
+**HINT:** If you add ./bin to your `PATH` you can omit the bin/ part of the previous command and run the tests using `runtests`.
 
 ## License
 

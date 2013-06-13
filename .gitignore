@@ -1,4 +1,17 @@
+# Vagrant
+.vagrant
+
 # Composer related files
 composer.phar
 vendor/
 bin/phpunit
+
+# Test artifacts
+tests/reports/*
+tmp/reports/*
+phpunit.xml
+
+# Assets and related cache
+tmp/cache/assetic/*
+tmp/cache/orlex/*
+web/webroot/assets/*
