@@ -14,7 +14,10 @@ class Talk {
 	}
 
 
-
+	/**
+	*	Getters and setters
+	*
+	**/
 	public function speaker()
 	{
 		return $this->_speaker;
@@ -40,10 +43,19 @@ class Talk {
 		$this->_description = $prmDescription;
 	}
 
-	public function setSpeaker(\OpenCFP\Speaker $prmSpeaker)
+	public function setSpeaker(\OpenCFP\User $prmSpeaker)
 	{
 		$this->_speaker = $prmSpeaker;
 	}
 
+	/**
+	*	
+	*
+	**/
+
+	public function approve()
+	{
+
+	}
 
 }
